@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Search Results</title>
+</head>
+<body>
+    <h1>Plant Search Results</h1>
+
+    <% if (plantData && plantData.length > 0) { %>
+        <ul>
+            <% plantData?.forEach(plant => { %>
+                <li>
+                    <h2><%= plant.common_name || "Common Name Not Available" %></h2>
+                    <p>Scientific Name: <%= plant.scientific_name || "Scientific Name Not Available" %></p>
+                    <p>Family: <%= plant.family || "Family Not Available" %></p>
+                    <p>Genus: <%= plant.genus || "Genus Not Available" %></p>
+                    # Add more plant data fields as needed
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No plant data found for your search.</p>
+    <% } %>
+
+    <a href="/plants">Search Again</a>
+</body>
+</html>
